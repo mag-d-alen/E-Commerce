@@ -91,7 +91,13 @@ export default {
         },
     ],
 }; */
-
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 1rem;
+}
 .main-container {
   margin: auto;
   width: 100%;
@@ -102,7 +108,6 @@ export default {
 
 .navbar-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin: 1rem 1.5rem;
 }
@@ -114,7 +119,7 @@ export default {
 }
 .marquee {
   position: relative;
-  height: 100rem;
+  height: 30rem;
   width: 100%;
   overflow-x: hidden;
 }
@@ -145,22 +150,22 @@ span.text-red {
 .logo {
   color: gray;
   font-size: 1.8rem;
+  margin-right: auto;
 }
 .cart-icon {
   font-size: 2.5rem;
   color: gray;
   cursor: pointer;
-  position: relative;
   transition: transform 0.4s ease;
   border: none;
   background-color: transparent;
+  margin-right: 1rem;
+  position: relative;
 }
 .cart-icon:hover {
   transform: scale(1.1, 1.1);
 }
 .cart-item-qty {
-  position: absolute;
-  right: -0.8rem;
   font-size: 1.2rem;
   color: #eee;
   background-color: #f02d34;
@@ -172,6 +177,10 @@ span.text-red {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 3;
+  top: 0px;
+  left: 20px;
 }
 .products-container {
   display: flex;
@@ -195,6 +204,10 @@ span.text-red {
   background-color: #ebebeb;
   transform: scale(1, 1);
   transition: transform 0.5s ease;
+  width: 15rem;
+  height: auto;
+  max-height: 15rem;
+  margin-right: 2rem;
 }
 
 .product-name {
@@ -209,12 +222,11 @@ span.text-red {
 .hero-banner-container {
   display: flex;
   flex-direction: column;
-  padding:2rem;
-  background-color: #dcdcdc;
+  padding: 2rem;
+  background-color: rgb(247, 210, 153);
   border-radius: 1.5rem;
   position: relative;
   line-height: 0.9;
-  width: 100%;
 }
 .hero-banner-container .beats-solo {
   font-size: 2rem;
@@ -233,15 +245,19 @@ span.text-red {
 }
 
 .hero-banner-container h3 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   margin-top: 0.4rem;
+  color: gray;
 }
 .hero-banner-container h1 {
   color: white;
   font-size: 10em;
   text-transform: uppercase;
-  margin-right: -2rem;
 }
+.hero-banner-container h1 > span {
+  filter: drop-shadow(0 0.3rem orange);
+}
+
 .hero-banner-image {
   position: absolute;
   top: 0%;
@@ -336,7 +352,7 @@ span.text-red {
   font-size: 1.4rem;
   font-weight: 300;
 }
-.cart-wrapper {
+.cart-outercontainer {
   width: 100vw;
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
@@ -382,6 +398,7 @@ span.text-red {
   margin-left: 1rem;
   border: none;
   background-color: transparent;
+  color: gray;
 }
 
 .cart-heading .heading {
@@ -392,8 +409,18 @@ span.text-red {
   color: #f02d34;
 }
 .empty-cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 4rem;
   text-align: center;
+}
+.empty-cart-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 .empty-cart h3 {
   font-weight: 600;
@@ -427,11 +454,16 @@ span.text-red {
 }
 .item-desc .bottom {
   margin-top: 6rem;
+  flex-direction: row;
 }
 .flex h5 {
+  display: flex;
+  color: gray;
   font-size: 2.4rem;
 }
 .flex h4 {
+  display: flex;
+  color: gray;
   font-size: 2rem;
 }
 .total {
@@ -481,7 +513,6 @@ span.text-red {
 
 .product-detail-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
@@ -491,14 +522,14 @@ span.text-red {
 
 .product-detail-image {
   border-radius: 1.5rem;
+  margin-right: 2rem;
   background-color: #ebebeb;
-  width: 70%;
-  height: 70%;
   cursor: pointer;
+  max-width: 23rem;
   transition: 0.3s ease-in-out;
 }
 .product-detail-image:hover {
-  background-color: #f02d34;
+  background-color: #f3a8398f;
 }
 .small-images-container {
   display: flex;
@@ -524,7 +555,7 @@ span.text-red {
   align-items: center;
 }
 
-.product-detail-desc h4 {
+.product-detail-desc h3 {
   margin-top: 1rem;
 }
 .product-detail-desc p {
@@ -557,9 +588,9 @@ span.text-red {
   gap: 3rem;
 }
 .buttons .add-to-cart {
-  padding: 1rem 2rem;
+  padding: 1rem;
   border: 1px solid #f02d34;
-  margin-top: 4rem;
+  margin-top: 1rem;
   font-size: 1.8rem;
   font-weight: 500;
   background-color: white;
@@ -579,7 +610,7 @@ span.text-red {
   background-color: #f02d34;
   color: white;
   border: none;
-  margin-top: 4rem;
+  margin-top: 1rem;
   font-size: 1.8rem;
   font-weight: 500;
   cursor: pointer;
@@ -590,35 +621,41 @@ span.text-red {
   transform: scale(1.1, 1.1);
 }
 .quantity-desc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  max-width: 25%;
+  margin: 0 auto;
   border: 0.1rem solid gray;
-  padding: 0.6rem;
 }
 .quantity-desc span {
-  font-size: 1.6rem;
-  padding: 0.6rem 1.2rem;
   cursor: pointer;
 }
 .quantity-desc .minus {
-  border-right: 0.1rem solid gray;
   color: #f02d34;
+  padding: 0.6rem 0.8rem;
 }
 .quantity-desc .num {
+  color: gray;
+  font-size: 1.6rem;
+  padding: 0.6rem 1.6rem;
+  border-left: 0.1rem solid gray;
   border-right: 0.1rem solid gray;
-  font-size: 2rem;
 }
 .quantity-desc .plus {
   color: rgb(49, 168, 49);
+  padding: 0.6rem 0.8rem;
 }
 
-.maylike-products-wrapper {
-  margin-top: 12rem;
+.maylike-products-outercontainer {
+  margin-top: 5rem;
 }
-.maylike-products-wrapper h2 {
+.maylike-products-outercontainer h2 {
   text-align: center;
-  margin: 5rem;
+  margin: 2rem;
   color: #324d67;
-
-  font-size: 20.8rem;
+  font-size: 5rem;
 }
 .maylike-products-container {
   display: flex;
@@ -687,12 +724,15 @@ span.text-red {
 @media screen and (max-width: 800px) {
   .hero-banner-container {
     line-height: 1.3;
+    color: #5f5f5f;
   }
   .hero-banner-container h1 {
     font-size: 5rem;
+    color: rgb(221, 138, 14);
   }
   .hero-banner-container h3 {
     font-size: 4rem;
+    color: #5f5f5f;
   }
   .hero-banner-container button {
     margin-top: 5rem;
@@ -747,18 +787,23 @@ span.text-red {
     bottom: 6rem;
   }
   .product-detail-container {
+    flex-direction: column;
     flex-wrap: wrap;
+    box-shadow: 0 1px #dcdcdc;
   }
   .product-detail-container .product-detail-image {
-    width: 12rem;
-    height: 12rem;
+    width: 15rem;
+    max-height: 15rem;
   }
   .product-detail-container .price {
     font-size: 1.5rem;
     margin-top: 0.5rem;
   }
+  .product-image {
+    margin: 0;
+  }
   .cart-container {
-    width: 41.5rem;
+    max-width: 35rem;
     padding: 0.4rem;
   }
   .cart-heading {
@@ -773,6 +818,12 @@ span.text-red {
   .product .cart-product-image {
     width: 25%;
     height: 25%;
+  }
+  .product-detail-desc .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
   }
   .buttons .add-to-cart {
     width: 15rem;

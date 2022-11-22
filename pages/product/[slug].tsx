@@ -1,50 +1,55 @@
-import React, { ReactElement } from "react";
-import { GetStaticProps, GetStaticPaths } from "next";
 import { client, urlFor } from "../../lib/client";
-import { ParsedUrlQuery } from "querystring";
-import { useRouter } from "next/router";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
-interface QueryParams extends ParsedUrlQuery {
-  slug: string;
-}
+import { ProductDetailsInterface, ProductType } from "../../types/types";
+import { ProductCard } from "../../components/ProductCard";
+import { Marquee } from "../../components/Marquee";
+import { useStateContext } from "../../styles/state/StateContext";
 
-interface Params extends ParsedUrlQuery {
-  id: string;
-}
-
-interface ProductDetailsInterface {
-  product: {
-    slug: string;
-    image: any;
-    name: string;
-    price: number;
-  };
-}
-
-const ProductDetails = ({ product }: ProductDetailsInterface): ReactElement => {
+const ProductDetails: React.FC<{
+  product: ProductType;
+  products: ProductType[];
+}> = ({ product, products }) => {
+  const { name, price, image } = product;
+  const { increaseQuantity, onAdd, quantity } = useStateContext();
   return (
-    <div className="product-detail-container">
-      {product.image ? (
+    <>
+      <div className="product-detail-container">
         <img
           className="product-detail-container product-detail-image"
-          src={urlFor(product.image?.asset?._ref).url()}></img>
-      ) : null}
+          src={urlFor(image?.asset?._ref).url()}></img>
+        <div className="product-detail-desc">
+          <h1>{name}</h1>
+          <h4>Allergen information</h4>
+          {/* <p>{details}</p> */}
+          <p> {price} $</p>
 
-      <div className="product-detail-desc">
-        <h4>{ product.name}</h4>
-        <p className="product-detail-desc price"> {product.price} $</p>
+          <div className="buttons">
+            <button className="buy-now" onClick={() => {}}>
+              Buy Now
+            </button>
+            <button
+              className="add-to-cart"
+              onClick={() => {
+                onAdd(product);
+              }}>
+              Add to Cart
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+      <Marquee products={products} />
+    </>
   );
 };
 
-export async function getStaticPaths(context: any) {
-  const productsQuery = '*[_type=="product"]';
-  const products = await client.fetch(productsQuery);
+export async function getStaticPaths() {
   return {
     paths: [
       {
-        params: { slug: "belgianwaffle" },
+        params: {
+          slug: "belgian_waffle",
+        },
       },
     ],
     fallback: "blocking",
@@ -52,11 +57,17 @@ export async function getStaticPaths(context: any) {
 }
 
 export async function getStaticProps({ params }: any) {
+  const productsQuery = '*[_type=="product"]';
+  const products = await client.fetch(productsQuery);
   let { slug } = params;
+
   const productQuery = `*[_type=="product" && slug == "${slug}"]`;
   const product = await client.fetch(productQuery);
   return {
-    props: { product: product[0] },
+    props: {
+      product: product[0],
+      products,
+    },
   };
 }
 export default ProductDetails;
