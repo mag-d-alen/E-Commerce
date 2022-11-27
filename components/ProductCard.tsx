@@ -6,7 +6,6 @@ import { ProductType } from "../types/types";
 export const ProductCard: React.FC<{ product: ProductType }> = ({
   product: { image, name, price, slug, description },
 }) => {
-
   return (
     <Link href={`/product/${slug}`}>
       <div className="product-detail-container">
@@ -20,7 +19,7 @@ export const ProductCard: React.FC<{ product: ProductType }> = ({
           <h4>Price</h4>
           <p className="product-detail-desc price"> {price} $</p>
           <h4>Alergen information</h4>
-          <p>{ description}</p>
+          <p>{description}</p>
         </div>
       </div>
     </Link>

@@ -7,7 +7,7 @@ const ProductDetails: React.FC<{
   product: ProductType;
   products: ProductType[];
 }> = ({ product, products }) => {
-  const { name, price, image } = product;
+  const { name, price, image, details } = product;
   const { onAdd, setShowCart } = useStateContext();
   const handleBuyNow = () => {
     onAdd(product);
@@ -22,7 +22,7 @@ const ProductDetails: React.FC<{
         <div className="product-detail-desc">
           <h1>{name}</h1>
           <h4>Allergen information</h4>
-          {/* <p>{details}</p> */}
+          {details ? <p>{details}</p> : null}
           <p> {price} $</p>
           <div className="buttons">
             <button className=" btn buy-now" onClick={() => handleBuyNow()}>
