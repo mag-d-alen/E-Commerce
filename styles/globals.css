@@ -4,7 +4,7 @@ body {
   margin: 0;
   width: 100%;
   height: 100%;
-  font-size: 1rem;
+  font-size: 12px;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -26,71 +26,7 @@ a {
     background: black;
   }
 }
-/* Skip to content
- 
 
-
-banner.js
-export default {
-    name: 'banner',
-    title: 'Banner',
-    type: 'document',
-    fields: [
-        {
-            name: 'image',
-            title: 'Image',
-            type: 'image',
-            options: {
-                hotspot: true,
-            },
-        },
-        {
-            name: 'buttonText',
-            title: 'ButtonText',
-            type: 'string',
-        },
-        {
-            name: 'product',
-            title: 'Product',
-            type: 'string',
-        },
-        {
-            name: 'desc',
-            title: 'Desc',
-            type: 'string',
-        },
-        {
-            name: 'smallText',
-            title: 'SmallText',
-            type: 'string',
-        },
-        {
-            name: 'midText',
-            title: 'MidText',
-            type: 'string',
-        },
-        {
-            name: 'largeText1',
-            title: 'LargeText1',
-            type: 'string',
-        },
-        {
-            name: 'largeText2',
-            title: 'LargeText2',
-            type: 'string',
-        },
-        {
-            name: 'discount',
-            title: 'Discount',
-            type: 'string',
-        },
-        {
-            name: 'saleTime',
-            title: 'SaleTime',
-            type: 'string',
-        },
-    ],
-}; */
 .flex {
   display: flex;
   align-items: center;
@@ -111,12 +47,7 @@ export default {
   align-items: center;
   margin: 1rem 1.5rem;
 }
-.marquee-text {
-  font-size: 3rem;
-  font-weight: 600;
-  margin: 15rem 0;
-  color: #f02d34;
-}
+
 .marquee {
   position: relative;
   height: 30rem;
@@ -143,18 +74,14 @@ export default {
   }
 }
 
-span.text-red {
-  -webkit-text-stroke: 0.1rem #f02d34;
-  margin-left: 0.5rem;
-}
 .logo {
-  color: gray;
+  color: pink;
   font-size: 1.8rem;
   margin-right: auto;
 }
 .cart-icon {
   font-size: 2.5rem;
-  color: gray;
+  color: pink;
   cursor: pointer;
   transition: transform 0.4s ease;
   border: none;
@@ -223,7 +150,7 @@ span.text-red {
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  background-color: rgb(247, 210, 153);
+  background-color: rgba(216, 112, 147, 0.599);
   border-radius: 1.5rem;
   position: relative;
   line-height: 0.9;
@@ -231,23 +158,11 @@ span.text-red {
 .hero-banner-container .beats-solo {
   font-size: 2rem;
 }
-.hero-banner-container button {
-  border-radius: 1.5rem;
-  padding: 1rem 1.5rem;
-  background-color: #f02d34;
-  color: white;
-  border: none;
-  margin-top: 3rem;
-  font-size: 1.2rem;
-  font-weight: 300;
-  cursor: pointer;
-  z-index: 10;
-}
 
 .hero-banner-container h3 {
   font-size: 3.5rem;
   margin-top: 0.4rem;
-  color: gray;
+  color: pink;
 }
 .hero-banner-container h1 {
   color: white;
@@ -255,15 +170,7 @@ span.text-red {
   text-transform: uppercase;
 }
 .hero-banner-container h1 > span {
-  filter: drop-shadow(0 0.3rem orange);
-}
-
-.hero-banner-image {
-  position: absolute;
-  top: 0%;
-  right: 20%;
-  width: 4.5rem;
-  height: 4.5rem;
+  filter: drop-shadow(0 0.4rem palevioletred);
 }
 
 .desc {
@@ -297,32 +204,12 @@ span.text-red {
   font-size: 1.6rem;
   font-weight: 200;
 }
-.footer-banner-container {
-  padding: 10rem 4rem;
-  background-color: #f02d34;
-  border-radius: 1.5rem;
-  position: relative;
-  height: 100rem;
-  line-height: 1;
-  color: white;
-  width: 100%;
-  margin-top: 12rem;
-}
+
 .banner-desc {
   display: flex;
   justify-content: space-between;
 }
-.banner-desc button {
-  border-radius: 1.5rem;
-  padding: 1rem 1.6rem;
-  background-color: white;
-  color: red;
-  border: none;
-  margin-top: 4rem;
-  font-size: 1.3rem;
-  font-weight: 500;
-  cursor: pointer;
-}
+
 .banner-desc .left h3 {
   font-weight: 900;
   font-size: 8rem;
@@ -331,13 +218,7 @@ span.text-red {
 .banner-desc .left p {
   margin: 1.8rem;
 }
-.footer-banner-image {
-  position: absolute;
-  top: -35%;
-  left: 8%;
-  top: -25%;
-  left: 25%;
-}
+
 .banner-desc .right {
   line-height: 1.4;
 }
@@ -371,34 +252,17 @@ span.text-red {
   position: relative;
 }
 
-.footer-container {
-  color: #324d67;
-  text-align: center;
-  margin-top: 2rem;
-  padding: 3rem 1rem;
-  font-weight: 700;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  justify-content: center;
-}
-.footer-container .icons {
-  font-size: 3rem;
-  display: flex;
-  gap: 1rem;
-}
 .cart-heading {
   display: flex;
   align-items: center;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 500;
   cursor: pointer;
   gap: 0.2rem;
-  margin-left: 1rem;
+  margin: 1rem;
   border: none;
   background-color: transparent;
-  color: gray;
+  color: grey;
 }
 
 .cart-heading .heading {
@@ -458,23 +322,25 @@ span.text-red {
 }
 .flex h5 {
   display: flex;
-  color: gray;
-  font-size: 2.4rem;
+  color: palevioletred;
+  font-size: 2rem;
+  margin: 0;
 }
 .flex h4 {
   display: flex;
-  color: gray;
-  font-size: 2rem;
+  color: palevioletred;
+  font-size: 1.8rem;
+  margin: 0;
 }
 .total {
   display: flex;
   justify-content: space-between;
 }
 .total h3 {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 .remove-item {
-  font-size: 2.4rem;
+  font-size: 2rem;
   color: #f02d34;
   cursor: pointer;
   background: transparent;
@@ -493,15 +359,13 @@ span.text-red {
   margin: auto;
 }
 .btn {
-  width: 100%;
-  max-width: 100rem;
   padding: 1rem 1.2rem;
-  border-radius: 1.5rem;
+  border-radius: 0.3rem;
   border: none;
-  font-size: 2rem;
-  margin-top: 1rem;
+  font-size: 1.6rem;
+  margin: 1.5rem;
   text-transform: uppercase;
-  background-color: #f02d34;
+  background-color: palevioletred;
   color: #fff;
   cursor: pointer;
   transform: scale(1, 1);
@@ -531,32 +395,24 @@ span.text-red {
 .product-detail-image:hover {
   background-color: #f3a8398f;
 }
-.small-images-container {
+.small-image-container {
   display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
+  justify-content: left;
+  padding: 1.5rem;
 }
 .small-image {
   border-radius: 0.8rem;
   background-color: #ebebeb;
-  width: 3rem;
-  height: 3rem;
+  width: 4rem;
+  height: 4rem;
   cursor: pointer;
-}
-
-.selected-image {
-  background-color: #f02d34;
-}
-.reviews {
-  color: #f02d34;
-  margin-top: 1rem;
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
 }
 
 .product-detail-desc h3 {
   margin-top: 1rem;
+}
+.product-detail-desc h1 {
+  color: palevioletred;
 }
 .product-detail-desc p {
   margin-top: 1rem;
@@ -569,14 +425,13 @@ span.text-red {
   font-weight: 700;
   font-size: 2.6rem;
   margin-top: 3rem;
-  color: #f02d34;
 }
-.price .old-price,
+/* .price .old-price,
 .product-price .old-price,
 .price .old-price {
   color: gray;
   text-decoration: line-through;
-}
+} */
 .product-detail-desc .quantity {
   display: flex;
   gap: 2rem;
@@ -589,12 +444,12 @@ span.text-red {
 }
 .buttons .add-to-cart {
   padding: 1rem;
-  border: 1px solid #f02d34;
+  border: 1px solid palevioletred;
   margin-top: 1rem;
   font-size: 1.8rem;
   font-weight: 500;
   background-color: white;
-  color: #f02d34;
+  color: palevioletred;
   cursor: pointer;
   width: 20rem;
   transform: scale(1, 1);
@@ -607,7 +462,7 @@ span.text-red {
   width: 20rem;
 
   padding: 1rem 2rem;
-  background-color: #f02d34;
+  background-color: palevioletred;
   color: white;
   border: none;
   margin-top: 1rem;
@@ -626,7 +481,7 @@ span.text-red {
   align-items: center;
   align-items: center;
   max-width: 25%;
-  margin: 0 auto;
+  margin: 0 0 0 auto;
   border: 0.1rem solid gray;
 }
 .quantity-desc span {
@@ -663,20 +518,20 @@ span.text-red {
   gap: 1.5rem;
   margin-top: 2rem;
 }
-.max-qty {
+/* .max-qty {
   font-weight: 500;
   color: #f02d34;
-}
-.success-wrapper,
-.cancel-wrapper {
+} */
+.success-container,
+.cancel-container {
   background-color: white;
-  min-height: 60vh;
+  min-height: 60%;
 }
 .success,
 .cancel {
   width: 100rem;
   margin: auto;
-  margin-top: 16rem;
+  margin-top: 3rem;
   background-color: #dcdcdc;
   padding: 5rem;
   border-radius: 1.5rem;
@@ -706,17 +561,17 @@ span.text-red {
   font-size: 2rem;
   font-weight: 600;
 }
-.success .description {
+/* .success .description {
   font-size: 1.6rem;
   font-weight: 600;
   text-align: center;
   margin: 1rem;
   margin-top: 3rem;
-}
-.success .description .email {
+} */
+/* .success .description .email {
   margin-left: 0.5rem;
   color: #f02d34;
-}
+} */
 .product-max-qty {
   margin-top: 1rem;
 }
@@ -738,17 +593,10 @@ span.text-red {
     margin-top: 5rem;
     z-index: 100;
   }
+  .hero-banner-container h1 > span {
+    filter: drop-shadow(0 0.1rem palevioletred);
+  }
 
-  .footer-banner-container {
-    height: 40rem;
-    margin-top: 8rem;
-  }
-  .footer-banner-image {
-    width: 77%;
-    left: 30%;
-    top: 6%;
-    height: 56%;
-  }
   .banner-desc .left h3 {
     font-weight: 900;
     font-size: 5rem;

@@ -1,12 +1,10 @@
 import Link from "next/link";
 import React, { useContext } from "react";
-import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { urlFor } from "../lib/client";
-import { useStateContext } from "../styles/state/StateContext";
 import { ProductType } from "../types/types";
 
 export const ProductCard: React.FC<{ product: ProductType }> = ({
-  product: { image, name, price, slug },
+  product: { image, name, price, slug, description },
 }) => {
 
   return (
@@ -22,7 +20,7 @@ export const ProductCard: React.FC<{ product: ProductType }> = ({
           <h4>Price</h4>
           <p className="product-detail-desc price"> {price} $</p>
           <h4>Alergen information</h4>
-          <p>blah blah</p>
+          <p>{ description}</p>
         </div>
       </div>
     </Link>

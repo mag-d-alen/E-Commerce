@@ -1,17 +1,18 @@
 import { client, urlFor } from "../../lib/client";
-import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-
-import { ProductDetailsInterface, ProductType } from "../../types/types";
-import { ProductCard } from "../../components/ProductCard";
+import { ProductType } from "../../types/types";
 import { Marquee } from "../../components/Marquee";
-import { useStateContext } from "../../styles/state/StateContext";
+import { useStateContext } from "../../state/StateContext";
 
 const ProductDetails: React.FC<{
   product: ProductType;
   products: ProductType[];
 }> = ({ product, products }) => {
   const { name, price, image } = product;
-  const { increaseQuantity, onAdd, quantity } = useStateContext();
+  const { onAdd, setShowCart } = useStateContext();
+  const handleBuyNow = () => {
+    onAdd(product);
+    setShowCart(true);
+  };
   return (
     <>
       <div className="product-detail-container">
@@ -23,13 +24,12 @@ const ProductDetails: React.FC<{
           <h4>Allergen information</h4>
           {/* <p>{details}</p> */}
           <p> {price} $</p>
-
           <div className="buttons">
-            <button className="buy-now" onClick={() => {}}>
+            <button className=" btn buy-now" onClick={() => handleBuyNow()}>
               Buy Now
             </button>
             <button
-              className="add-to-cart"
+              className=" btn add-to-cart"
               onClick={() => {
                 onAdd(product);
               }}>

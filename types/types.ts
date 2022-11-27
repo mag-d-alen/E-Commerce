@@ -8,7 +8,7 @@ export type ProductType = {
   details?: string;
   slug: string;
   quantity: number;
-  requests?: string;
+  description?: string;
 };
 
 export interface QueryParams extends ParsedUrlQuery {
@@ -32,4 +32,7 @@ export interface StateContextInterface {
   decreaseQuantity: (product: ProductType) => void;
   onAdd: (product: ProductType) => void;
   setShowCart: (cart: boolean) => void;
+  setTotalPrice: (price: number) => void;
+  setTotalQuantities: (qty: number) => void;
+  setCartItems: (items: ProductType[]) => void;
 }

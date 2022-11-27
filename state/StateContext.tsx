@@ -1,7 +1,7 @@
 import React, { useContext, createContext, useState } from "react";
 import { toast } from "react-hot-toast";
-import ProductDetails from "../../pages/product/[slug]";
-import { StateContextInterface, ProductType } from "../../types/types";
+import ProductDetails from "../pages/product/[slug]";
+import { StateContextInterface, ProductType } from "../types/types";
 
 const defaultContext = {
   showCart: false,
@@ -13,6 +13,9 @@ const defaultContext = {
   decreaseQuantity: () => {},
   setShowCart: (cart: boolean) => {},
   onAdd: (product: ProductType) => {},
+  setTotalPrice: () => {},
+  setTotalQuantities: () => {},
+  setCartItems: () => {},
 };
 export const Context = createContext<StateContextInterface>(defaultContext);
 
@@ -82,6 +85,9 @@ export const StateContext = ({ children }: any) => {
         decreaseQuantity,
         onAdd,
         setShowCart,
+        setTotalPrice,
+        setTotalQuantities,
+        setCartItems,
       }}>
       {children}
     </Context.Provider>
