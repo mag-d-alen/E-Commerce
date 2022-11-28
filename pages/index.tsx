@@ -1,10 +1,6 @@
-import { Footer } from "../components/Footer";
-import { FooterBanner } from "../components/FooterBanner";
 import { HeroBanner } from "../components/HeroBanner";
-
 import { client } from "../lib/client";
 import { ProductCard } from "../components/ProductCard";
-import { Layout } from "../components/Layout";
 import Link from "next/link";
 
 const Home: React.FC<{ products: any }> = ({ products }) => {
@@ -18,7 +14,6 @@ const Home: React.FC<{ products: any }> = ({ products }) => {
           </Link>
         ))}
       </div>
-   
     </>
   );
 };
