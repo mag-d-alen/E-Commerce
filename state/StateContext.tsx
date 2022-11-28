@@ -1,7 +1,5 @@
 import React, { useContext, createContext, useState } from "react";
 import { toast } from "react-hot-toast";
-import { updateClassDeclaration } from "typescript";
-import ProductDetails from "../pages/product/[slug]";
 import { StateContextInterface, ProductType } from "../types/types";
 
 const defaultContext = {
