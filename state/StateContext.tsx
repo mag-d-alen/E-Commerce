@@ -89,6 +89,9 @@ export const StateContext = ({ children }: any) => {
         setTotalQuantities,
         setCartItems,
       }}>
+      {
+        //eslint-disable-next-line
+      }
       {children}
     </Context.Provider>
   );
