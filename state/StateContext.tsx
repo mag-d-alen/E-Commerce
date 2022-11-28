@@ -1,5 +1,6 @@
 import React, { useContext, createContext, useState } from "react";
 import { toast } from "react-hot-toast";
+import { updateClassDeclaration } from "typescript";
 import ProductDetails from "../pages/product/[slug]";
 import { StateContextInterface, ProductType } from "../types/types";
 
@@ -26,53 +27,52 @@ export const StateContext = ({ children }: any) => {
   const [totalQuantities, setTotalQuantities] = useState<number>(0);
   const [quantity, setQuantity] = useState<number>(0);
 
-  const onAdd = (product: ProductType) => {
-    increaseQuantity(product);
-    toast.success(
-      `You currently have ${product.quantity} pieces of ${product?.name} in your cart`
+  const updateCart = (product: ProductType) => {
+    const itemInCart = cartItems.find(
+      (item: ProductType) => item._id === product._id
     );
+    if (itemInCart) {
+      let updatedItems;
+      if (product.quantity === 0)
+        updatedItems = cartItems.filter(
+          (item: ProductType) => item._id !== product._id
+        );
+      else {
+        updatedItems = cartItems.map((item: ProductType) => {
+          return item._id === product._id
+            ? { ...item, quantity: product.quantity }
+            : item;
+        });
+      }
+      setCartItems(updatedItems);
+    } else {
+      setCartItems([...cartItems, { ...product }]);
+    }
   };
 
   const increaseQuantity = (product: ProductType) => {
     product.quantity ? (product.quantity += 1) : (product.quantity = 1);
     setTotalQuantities((prev) => (prev += 1));
     setTotalPrice((prev) => (prev += product.price));
-    const itemInCart = cartItems.find(
-      (item: ProductType) => item._id === product._id
-    );
-    if (itemInCart) {
-      const updatedItems = cartItems.map((item: ProductType) => {
-        return item._id === product._id
-          ? { ...item, quantity: product.quantity }
-          : item;
-      });
-      setCartItems(updatedItems);
-    } else {
-      setCartItems([...cartItems, { ...product }]);
-    }
+    updateCart(product);
   };
 
   const decreaseQuantity = (product: ProductType) => {
     product.quantity - 1 > 0 ? (product.quantity -= 1) : (product.quantity = 0);
+    updateCart(product);
+
     setTotalQuantities((prev) => (prev - 1 > 0 ? (prev -= 1) : 0));
     setTotalPrice((prev) =>
       prev - product.price > 0 ? (prev -= product.price) : 0
     );
-    const itemInCart = cartItems.find(
-      (item: ProductType) => item._id === product._id
-    );
-    if (itemInCart) {
-      const updatedItems = cartItems.map((item: ProductType) => {
-        return item._id === product._id
-          ? { ...item, quantity: product.quantity }
-          : item;
-      });
-      setCartItems(updatedItems);
-    } else {
-      setCartItems([...cartItems, { ...product }]);
-    }
   };
 
+  const onAdd = (product: ProductType) => {
+    increaseQuantity(product);
+    toast.success(
+      `You currently have ${product.quantity} pieces of ${product?.name} in your cart`
+    );
+  };
   return (
     <Context.Provider
       value={{
@@ -89,10 +89,7 @@ export const StateContext = ({ children }: any) => {
         setTotalQuantities,
         setCartItems,
       }}>
-      {
-        //eslint-disable-next-line
-      }
-      {children}
+      /* eslint-disable no-eval */{children}
     </Context.Provider>
   );
 };

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useContext } from "react";
+import React from "react";
 import { urlFor } from "../lib/client";
 import { ProductType } from "../types/types";
 
@@ -11,6 +11,7 @@ export const ProductCard: React.FC<{ product: ProductType }> = ({
       <div className="product-detail-container">
         {image ? (
           <img
+            alt={slug}
             className="product-image"
             src={urlFor(image?.asset?._ref).url()}></img>
         ) : null}
