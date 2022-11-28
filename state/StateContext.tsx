@@ -89,7 +89,7 @@ export const StateContext = ({ children }: any) => {
         setTotalQuantities,
         setCartItems,
       }}>
-      /* eslint-disable no-eval */{children}
+      {/*eslint-disable no-eval*/} {children}
     </Context.Provider>
   );
 };
